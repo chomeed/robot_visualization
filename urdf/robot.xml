@@ -1,0 +1,104 @@
+<mujoco model="zr">
+  <compiler angle="radian"/>
+
+  <actuator>
+    <motor ctrllimited="true" ctrlrange="-1 1" gear="100" joint="joint_arm_1"/>
+    <motor ctrllimited="true" ctrlrange="-1 1" gear="100" joint="joint_arm_2"/>
+    <motor ctrllimited="true" ctrlrange="-1 1" gear="100" joint="joint_arm_3"/>
+    <motor ctrllimited="true" ctrlrange="-1 1" gear="100" joint="joint_arm_4"/>
+    <motor ctrllimited="true" ctrlrange="-1 1" gear="100" joint="joint_arm_5"/>
+    <motor ctrllimited="true" ctrlrange="-1 1" gear="100" joint="joint_arm_6"/>
+    
+  </actuator>
+
+  <asset>
+    <mesh name="z1_Link00" file="z1_Link00.STL"/>
+    <mesh name="z1_Link01" file="z1_Link01.stl"/>
+    <mesh name="z1_Link02" file="z1_Link02.STL"/>
+    <mesh name="z1_Link03" file="z1_Link03.STL"/>
+    <mesh name="z1_Link04" file="z1_Link04.STL"/>
+    <mesh name="z1_Link05" file="z1_Link05.STL"/>
+    <mesh name="z1_Link06" file="z1_Link06.STL"/>
+    <mesh name="hand_adaptor" file="hand_adaptor.STL"/>
+    <mesh name="base" file="base.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="r1" file="r1.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="l1" file="l1.stl" scale="0.001 0.001 0.001"/>
+    <mesh name="left_gripper_tip" file="left_gripper_tip.STL"/>
+    <mesh name="right_gripper_tip" file="right_gripper_tip.STL"/>
+
+
+    <texture name="checkerboard" type="2d" builtin="checker" width="512" height="512" rgb1="0 0 0.5" rgb2="0.6 0.8 1" mark="none" />
+    <material name="checker_mat" texture="checkerboard" texrepeat="2 2" />
+  </asset>
+
+  <worldbody>
+    <geom type="plane" size="2 2 0.1" material="checker_mat" rgba="1 1 1 1" />     
+    <body name="link00">
+      <inertial pos="-0.00334984 -0.00013615 0.0249584" quat="-0.00692194 0.682592 0.00133293 0.730766" mass="0.472475" diaginertia="0.000531375 0.000415207 0.000378658"/>
+      <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="z1_Link00"/>
+      <body name="link01" pos="0 0 0.0585">
+        <inertial pos="2.47e-06 -0.00025198 0.0231717" quat="0.708578 0.705633 0.000281462 -0.000355927" mass="0.673326" diaginertia="0.00128328 0.000839362 0.000719308"/>
+        <joint name="joint_arm_1" pos="0 0 0" axis="0 0 1" range="-2.61799 2.61799" actuatorfrcrange="-30 30" damping="1" frictionloss="1"/>
+        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="z1_Link01"/>
+        <body name="link02" pos="0 0 0.045">
+          <inertial pos="-0.110126 0.00240029 0.00158266" quat="0.00748058 0.707092 -0.0114473 0.70699" mass="1.19132" diaginertia="0.0246612 0.0243113 0.00100468"/>
+          <joint name="joint_arm_2" pos="0 0 0" axis="0 1 0" range="0 2.96706" actuatorfrcrange="-60 60" damping="2" frictionloss="2"/>
+          <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="z1_Link02"/>
+          <body name="link03" pos="-0.35 0 0">
+            <inertial pos="0.106092 -0.00541815 0.0347638" quat="0.540557 0.443575 0.426319 0.573839" mass="0.839409" diaginertia="0.00954365 0.00938711 0.000558432"/>
+            <joint name="joint_arm_3" pos="0 0 0" axis="0 1 0" range="-2.87979 0" actuatorfrcrange="-30 30" damping="1" frictionloss="1"/>
+            <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="z1_Link03"/>
+            <body name="link04" pos="0.218 0 0.057">
+              <inertial pos="0.0436668 0.00364738 -0.00170192" quat="0.0390835 0.726445 -0.0526787 0.684087" mass="0.564046" diaginertia="0.000981656 0.00094053 0.000302655"/>
+              <joint name="joint_arm_4" pos="0 0 0" axis="0 1 0" range="-1.51844 1.51844" actuatorfrcrange="-30 30" damping="1" frictionloss="1"/>
+              <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="z1_Link04"/>
+              <body name="link05" pos="0.07 0 0">
+                <inertial pos="0.0312153 0 0.00646316" quat="0.462205 0.535209 0.53785 0.45895" mass="0.389385" diaginertia="0.000558961 0.000547317 0.000167332"/>
+                <joint name="joint_arm_5" pos="0 0 0" axis="0 0 1" range="-1.3439 1.3439" actuatorfrcrange="-30 30" damping="1" frictionloss="1"/>
+                <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="z1_Link05"/>
+                <body name="link06" pos="0.0492 0 0">
+                  <inertial pos="0.0241569 -0.00017355 -0.00143876" quat="0.998779 0.0457735 -0.00663717 0.0173548" mass="0.288758" diaginertia="0.00018333 0.000147464 0.000146786"/>
+                  <joint name="joint_arm_6" pos="0 0 0" axis="1 0 0" range="-2.79253 2.79253" actuatorfrcrange="-30 30" damping="1" frictionloss="1"/>
+                  <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="z1_Link06"/>
+                  <body name="hand_adaptor" pos="0.0435 0 0" quat="0 -0.707107 0.707107 0">
+                    <inertial pos="7.82343e-06 0.00397537 0.00899299" quat="-0.00557049 0.707077 -0.00584137 0.707091" mass="0.0197175" diaginertia="1.28177e-05 7.5726e-06 5.97787e-06"/>
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" mesh="hand_adaptor"/>
+                    <body name="rh_p12_rn_base" pos="0 -0.0103 0" quat="0.5 0.5 0.5 -0.5">
+                      <inertial pos="0 0 0.032" mass="0.236" diaginertia="1 1 1"/>
+                      <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.2 0.2 0.2 1" mesh="base"/>
+                      <geom type="mesh" rgba="0.2 0.2 0.2 1" mesh="base"/>
+                      <body name="right_gripper_link" pos="0 0.008 0.048">
+                        <inertial pos="0 0.034 0.004" mass="0.068" diaginertia="1 1 1"/>
+                        <joint name="right_gripper_link_joint" pos="0 0 0" axis="1 0 0" range="0 1.12" actuatorfrcrange="-1000 1000" damping="0.7"/>
+                        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.2 0.2 0.2 1" mesh="r1"/>
+                        <geom type="mesh" rgba="0.2 0.2 0.2 1" mesh="r1"/>
+                        <body name="right_gripper_tip" pos="0 0.0493634 0.0285" quat="0.707105 0 0.707108 0">
+                          <inertial pos="-0.049583 0.011382 -1.4742e-07" quat="0.477699 0.477692 0.521352 0.52135" mass="0.067644" diaginertia="5.79491e-05 5.3981e-05 1.28539e-05"/>
+                          <joint name="right_gripper_tip_joint" pos="0 0 0" axis="0 0 1" range="-1.12 0" actuatorfrcrange="-1000 1000" damping="0.7"/>
+                          <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 0.2 0.2 1" mesh="right_gripper_tip"/>
+                          <geom type="mesh" rgba="1 0.2 0.2 1" mesh="right_gripper_tip"/>
+                        </body>
+                      </body>
+                      <body name="left_gripper_link" pos="0 -0.008 0.048">
+                        <inertial pos="0 -0.034 0.004" mass="0.068" diaginertia="1 1 1"/>
+                        <joint name="left_gripper_link_joint" pos="0 0 0" axis="1 0 0" range="-1.12 0" actuatorfrcrange="-1000 1000" damping="0.7"/>
+                        <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="0.2 0.2 0.2 1" mesh="l1"/>
+                        <geom type="mesh" rgba="0.2 0.2 0.2 1" mesh="l1"/>
+                        <body name="left_gripper_tip" pos="0 -0.0493634 0.0285" quat="9.38184e-07 0.707108 9.38187e-07 -0.707105">
+                          <inertial pos="-0.049583 0.011382 -1.4742e-07" quat="0.477699 0.477692 0.521352 0.52135" mass="0.067644" diaginertia="5.79491e-05 5.3981e-05 1.28539e-05"/>
+                          <joint name="left_gripper_tip_joint" pos="0 0 0" axis="0 0 1" range="-1.12 0" actuatorfrcrange="-1000 1000" damping="0.7"/>
+                          <geom type="mesh" contype="0" conaffinity="0" group="1" density="0" rgba="1 0.2 0.2 1" mesh="left_gripper_tip"/>
+                          <geom type="mesh" rgba="1 0.2 0.2 1" mesh="left_gripper_tip"/>
+                        </body>
+                      </body>
+                    </body>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+</mujoco>

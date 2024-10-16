@@ -1,0 +1,9 @@
+__pycache__/
+result/
+*.hdf5
+*.mp4
+*.png
+
+urdf/zr.urdf
+
+.DS_Store
