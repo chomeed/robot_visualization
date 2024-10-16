@@ -10,7 +10,7 @@ https://docs.ros.org/en/humble/How-To-Guides/Using-Python-Packages.html
 
 # How to use 
 
-    # Without using (demoe replay) 
+    # Without using (demo replay) 
     python robot_controller.py
 
     # Right arm only (demo replay) 
