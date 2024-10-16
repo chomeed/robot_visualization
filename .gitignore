@@ -3,6 +3,7 @@ result/
 *.hdf5
 *.mp4
 *.png
+.gitignore
 
 urdf/zr.urdf
 
